@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/TVM1516/!svn/ver/73984/TVM50/TJA251/trunk/Project2/GroupD/project/bms_/BMS_Team_D_Report/WebContent/App_Start
+END
+FilterConfig.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/TVM1516/!svn/ver/73984/TVM50/TJA251/trunk/Project2/GroupD/project/bms_/BMS_Team_D_Report/WebContent/App_Start/FilterConfig.cs
+END
+WebApiConfig.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/TVM1516/!svn/ver/73984/TVM50/TJA251/trunk/Project2/GroupD/project/bms_/BMS_Team_D_Report/WebContent/App_Start/WebApiConfig.cs
+END
+BundleConfig.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/TVM1516/!svn/ver/73984/TVM50/TJA251/trunk/Project2/GroupD/project/bms_/BMS_Team_D_Report/WebContent/App_Start/BundleConfig.cs
+END
+RouteConfig.cs
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/TVM1516/!svn/ver/73984/TVM50/TJA251/trunk/Project2/GroupD/project/bms_/BMS_Team_D_Report/WebContent/App_Start/RouteConfig.cs
+END
+AuthConfig.cs
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/TVM1516/!svn/ver/73984/TVM50/TJA251/trunk/Project2/GroupD/project/bms_/BMS_Team_D_Report/WebContent/App_Start/AuthConfig.cs
+END

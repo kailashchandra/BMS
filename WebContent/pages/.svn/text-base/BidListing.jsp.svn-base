@@ -1,0 +1,197 @@
+<%@page import="java.sql.*"%>
+<%@ include file="Header.html"%>
+<%@ page import="com.tcs.ilp.controller.*"%>
+<html>
+<head>
+<script type="text/javascript">
+function ChangeColor(tableRow, highLight)
+{
+if (highLight)
+{
+  tableRow.style.backgroundColor = '#c0c0c0';
+}
+else
+{
+  tableRow.style.backgroundColor = 'white';
+}
+}
+function DoNav(theUrl) { document.location.href = theUrl; }
+</script>
+</head>
+<body>
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Bid Listing</h1>
+			</div>
+
+
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" id="panel-heading">
+						<form name="bidList" method='POST' action="BidListingController">
+							<table style="height: 50px">
+								<tbody>
+									<tr>
+										<td><label>Search Criteria &nbsp&nbsp</label></td>
+										<td><select class="form-control" name="criteria">
+
+												<option value="selected">---Select---</option>
+
+												<option value="bidId">Bid ID</option>
+												<option value="bName">Bid Name</option>
+												<option value="cdate">Created Date</option>
+												<option value="eDate">Expiry Date</option>
+												<option value="status">Status</option>
+										</select></td>
+
+										<td><label> &nbsp;&nbsp; Search Value
+												&nbsp;&nbsp;</label></td>
+										<td><input class="form-control" type="text" name="value"></td>
+
+
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;<input
+											class="btn btn-default" type="submit" value="Find"></td>
+
+									</tr>
+								</tbody>
+							</table>
+						</form>
+
+					</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body" id="panel-body">
+						<div class="dataTable_wrapper">
+							<div style="overflow: auto; height: 200px">
+								<table class="table table-striped table-bordered table-hover"
+									id="dataTables-example">
+									<thead>
+										<tr>
+											<th>Bid ID</th>
+											<th>Bid Name</th>
+											<th>Created Date</th>
+											<th>Expiry Date</th>
+											<th>Status</th>
+											<th>Operation</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<%
+											ResultSet resultSet = (ResultSet) request.getAttribute("resultSet");
+											if (resultSet != null) {
+												while (resultSet.next()) {
+										%>
+										
+										<tr  onmouseover="ChangeColor(this, true);" 
+              onmouseout="ChangeColor(this, false); "onclick="DoNav('BidCreation.jsp?id=<%=resultSet.getInt(1)%>')" class='odd gradeA' >
+											<td><%=resultSet.getInt("id")%></td>
+											<td><%=resultSet.getString("name")%></td>
+											<td><%=resultSet.getDate("created_date")%></td>
+											<td><%=resultSet.getDate("expiry_date")%></td>
+											<td><%=resultSet.getString("status")%></td>
+											<td><a href="BidListingController?id=<%=resultSet.getInt(1)%>">Delete</a></td>
+										</tr>
+										
+										<%
+											}
+											} else {
+										%>
+										<tr class='odd gradeA'>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<%
+											}
+										%>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- /.table-responsive -->
+
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+
+
+
+
+		<!-- /.panel -->
+	</div>
+	<!-- /.col-lg-6 -->
+	<div class="col-lg-6">
+		<div class="panel panel-default">
+
+			<!-- /.panel-heading -->
+
+			<!-- /.table-responsive -->
+
+			<!-- /.panel-heading -->
+
+			<!-- /.table-responsive -->
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+	</div>
+	<!-- /.col-lg-6 -->
+	<div class="col-lg-6">
+
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+	</div>
+	<!-- /.col-lg-6 -->
+	</div>
+	<!-- /.row -->
+
+	<!-- /.row -->
+	</div>
+	<!-- /#page-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- jQuery -->
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+	<!-- DataTables JavaScript -->
+	<script
+		src="../bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+	<script
+		src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="../dist/js/sb-admin-2.js"></script>
+
+	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+	<script>
+		$(document).ready(function() {
+			$('#dataTables-example').DataTable({
+				responsive : true
+			});
+		});
+	</script>
+
+</body>
+
+</html>

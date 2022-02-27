@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Unnamed" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" isIgnorePagination="true">
+	<property name="com.jasperassistant.designer.Grid" value="false"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="Oracle DB"/>
+	
+	<parameter name="hidden_bidName" class="java.lang.String">
+        <parameterDescription><![CDATA[]]></parameterDescription>
+    </parameter>
+	<queryString>
+		<![CDATA[ select a.id, a.name, a.created_date as bid_created_date, a.expiry_date as bid_expiry_date, b.bid_attribute_value, c.template_name, c.description, c.created_date as template_created_date, d.category_name, e.attribute_name,e.description as attribute_description,  e.created_date from bid_251 a inner join bid_values_251 b on a.id = b.bid_id inner join bid_template_251 c on a.template_id = c.id inner join bid_category_251 d on b.bid_category_id = d.id inner join bid_attributes_251 e on b.bid_attribute_id= e.id where a.name = '$P!{hidden_bidName}' ]]>
+	</queryString>
+	
+	<field name="id" class="java.lang.Integer"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="bid_created_date" class="java.sql.Timestamp"/>
+	<field name="bid_expiry_date" class="java.util.Date"/>
+	<field name="bid_attribute_value" class="java.lang.String"/>
+	<field name="template_name" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="template_created_date" class="java.util.Date"/>
+	<field name="category_name" class="java.lang.String"/>
+	<field name="attribute_name" class="java.lang.String"/>
+	<field name="attribute_description" class="java.lang.String"/>	
+	<field name="created_date" class="java.util.Date"/>
+	
+	 <columnHeader>
+        <band height="26" >
+            <staticText>
+                <reportElement x="40" y="3" width="300" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+             
+                <text><![CDATA[Report Generated based on Bid Name Search]]></text>
+       
+	   </staticText>
+        </band>
+    </columnHeader>
+	<detail>
+		<band height="660">
+		 <staticText>
+                <reportElement x="40" y="30" width="60" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[ID:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="140" y="34" width="80" height="80" />
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="40" y="60" width="60" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[NAME:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="140" y="64" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="10" y="90" width="90" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Bid_Created_Date:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="94" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{bid_created_date}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="10" y="120" width="90" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Bid_Expiry_Date:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="124" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{bid_expiry_date}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="10" y="150" width="90" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Attribute_Value:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="154" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{bid_attribute_value}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="10" y="180" width="90" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Template_name:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="184" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{template_name}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="30" y="210" width="60" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Description:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="214" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="10" y="240" width="110" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Template_created_date:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="244" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{template_created_date}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="10" y="270" width="90" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[Category_name:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="274" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{category_name}]]></textFieldExpression>
+			</textField>
+			 
+			 <staticText>
+                <reportElement x="10" y="330" width="90" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[attribute_name:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="334" width="130" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{attribute_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+                <reportElement x="10" y="390" width="110" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[attribute_description:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="394" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{attribute_description}]]></textFieldExpression>
+			</textField>
+			 <staticText>
+                <reportElement x="10" y="420" width="90" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text><![CDATA[created_date:-]]></text>
+            </staticText>
+			<textField hyperlinkType="None">
+				<reportElement x="130" y="424" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{created_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="0;url=pages/BidListing.jsp">
+<title>BMS</title>
+<script language="javascript">
+    window.location.href = "pages/BidListing.jsp"
+</script>
+</head>
+<body>
+Go to <a href="pages/BidListing.jsp">/pages/BidListing.jsp</a>
+</body>
+</html>
